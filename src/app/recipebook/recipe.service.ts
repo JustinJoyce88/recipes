@@ -12,29 +12,27 @@ export class RecipeService {
       "A Test Recipe",
       "this is a test",
       "https://www.maxpixel.net/static/photo/1x/Cooking-Delicious-Korean-Food-Recipe-Asia-822090.jpg",
-      [
-        new Ingredient('Meat', 1),
-        new Ingredient('French Fries', 20)
-      ]
+      [new Ingredient("Meat", 1), new Ingredient("French Fries", 20)]
     ),
     new Recipe(
       "Another Recipe",
       "this is a test",
       "https://www.maxpixel.net/static/photo/1x/Cooking-Delicious-Korean-Food-Recipe-Asia-822090.jpg",
-      [
-        new Ingredient('Buns', 2),
-        new Ingredient('Meat', 1)
-      ]
+      [new Ingredient("Buns", 2), new Ingredient("Meat", 1)]
     )
   ];
 
-  constructor(private shoppingListService: ShoppingListService){}
+  constructor(private shoppingListService: ShoppingListService) {}
 
-  getRecipes(){
+  getRecipes() {
     return this.recipes.slice();
   }
 
-  addIngToShopping(ingredients: Ingredient[]){
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
+  addIngToShopping(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
 }
